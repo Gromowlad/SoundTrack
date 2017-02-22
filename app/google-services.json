@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "965957381581",
+    "firebase_url": "https://soundtrack-55559.firebaseio.com",
+    "project_id": "soundtrack-55559",
+    "storage_bucket": "soundtrack-55559.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965957381581:android:47194f2158543ea5",
+        "android_client_info": {
+          "package_name": "com.soundtrack.bart.soundtrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965957381581-sqvmuvunienrc0hm0nolr0t4m0uvu548.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.soundtrack.bart.soundtrack",
+            "certificate_hash": "70025E70A8874C269C03F6513C470B0A31084453"
+          }
+        },
+        {
+          "client_id": "965957381581-brgm5o69pj4oaaulkb6hkg2ss3n1su97.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDooyLmbqk0y4ldnki2QkG1CeedAE2Wi6w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "965957381581-brgm5o69pj4oaaulkb6hkg2ss3n1su97.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
