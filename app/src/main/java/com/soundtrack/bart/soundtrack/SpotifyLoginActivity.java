@@ -8,9 +8,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
+import com.parse.FunctionCallback;
+import com.parse.ParseCloud;
+import com.parse.ParseException;
 import com.spotify.sdk.android.authentication.AuthenticationClient;
 import com.spotify.sdk.android.authentication.AuthenticationRequest;
 import com.spotify.sdk.android.authentication.AuthenticationResponse;
+
+import java.util.HashMap;
 
 public class SpotifyLoginActivity extends AppCompatActivity {
 
@@ -35,7 +40,7 @@ public class SpotifyLoginActivity extends AppCompatActivity {
         AuthenticationClient.openLoginActivity(this, REQUEST_CODE, request);
     }
 
-    /*protected void onNewIntent(Intent intent) {
+    protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
 
         Intent redirectToImportArtistsActivity = new Intent(SpotifyLoginActivity.this, ImportArtistsActivity.class);
@@ -50,7 +55,7 @@ public class SpotifyLoginActivity extends AppCompatActivity {
                 // Response was successful and contains auth token
                 case TOKEN:
                     // Handle successful response
-                    spotifyAccessToken = response.getAccessToken();
+                    String spotifyAccessToken = response.getAccessToken();
                     Toast.makeText(getApplicationContext(), "Spotify login successful" + spotifyAccessToken, Toast.LENGTH_LONG).show();
                     startActivity(redirectToImportArtistsActivity);
                     break;
@@ -71,14 +76,14 @@ public class SpotifyLoginActivity extends AppCompatActivity {
 
             }
         }
-    } */
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
 
-        Intent redirectToImportArtistsActivity = new Intent(SpotifyLoginActivity.this, ImportArtistsActivity.class);
-        redirectToImportArtistsActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        redirectToImportArtistsActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+       // Intent redirectToImportArtistsActivity = new Intent(SpotifyLoginActivity.this, ImportArtistsActivity.class);
+        //redirectToImportArtistsActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        //redirectToImportArtistsActivity.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         // Check if result comes from the correct activity
         if (requestCode == REQUEST_CODE) {
@@ -90,23 +95,40 @@ public class SpotifyLoginActivity extends AppCompatActivity {
                     // Handle successful response
                     String spotiAccessToken = response.getAccessToken();
                     Toast.makeText(getApplicationContext(), "Spotify login successful." + spotiAccessToken, Toast.LENGTH_LONG).show();
-                    startActivity(redirectToImportArtistsActivity);
+                    //startActivity(redirectToImportArtistsActivity);
+
+                    /*HashMap<String, Object> params = new HashMap<String, Object>();
+                    params.put("spotifyToken", spotiAccessToken);
+
+                    ParseCloud.callFunctionInBackground("getSpotifyArtists", params, new FunctionCallback<String>() {
+                        public void done(String artList, ParseException e) {
+                            if (e == null) {
+                                Toast.makeText(getApplicationContext(), "CLOUD CODE SUCCESS \n" + artList, Toast.LENGTH_LONG).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "CLOUD CODE ERROR " + e.toString(), Toast.LENGTH_LONG).show();
+                            }
+
+                        }
+                    });*/
+
                     break;
 
                 // Auth flow returned an error
                 case ERROR:
                     // Handle error response
                     Toast.makeText(getApplicationContext(), "Spotify login error - log in to the Spotify Android app.", Toast.LENGTH_LONG).show();
-                    startActivity(redirectToImportArtistsActivity);
+                    //startActivity(redirectToImportArtistsActivity);
                     break;
 
                 // Most likely auth flow was cancelled
                 default:
                     // Handle other cases
                     Toast.makeText(getApplicationContext(), "Spotify login error.", Toast.LENGTH_LONG).show();
-                    startActivity(redirectToImportArtistsActivity);
+                    //startActivity(redirectToImportArtistsActivity);
             }
         }
+
+        //AuthenticationClient.clearCookies(getApplication());
     }
 
 }

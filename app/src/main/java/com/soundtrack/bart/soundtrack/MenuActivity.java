@@ -4,13 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
 import com.parse.ParseUser;
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class MenuActivity extends AppCompatActivity {
             mainActivityIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(mainActivityIntent);
         }
+
     }
 
     public void redToImportArtists(View view) {
@@ -37,6 +39,24 @@ public class MenuActivity extends AppCompatActivity {
         mainActivityIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainActivityIntent);
     }
+
+    public void redToUpdateLocation(View view) {
+
+        Intent mainActivityIntent = new Intent(MenuActivity.this, GetCurrentLocationActivity.class);
+        mainActivityIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        mainActivityIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(mainActivityIntent);
+    }
+
+    public void redToViewArtistList(View view) {
+
+        Intent mainActivityIntent = new Intent(MenuActivity.this, ViewArtistListActivity.class);
+        mainActivityIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        mainActivityIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(mainActivityIntent);
+    }
+
+
 
     public void logOut(View view) {
         ParseUser.logOut();

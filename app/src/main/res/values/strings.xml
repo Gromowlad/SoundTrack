@@ -7,4 +7,7 @@
     <string name="facebook_app_id">911108452314880</string>
     <string name="title_activity_spotfy_login">spotfyLoginActivity</string>
     <string name="title_activity_spotify_login">SpotifyLoginActivity</string>
+    <string name="com_facebook_loginview_log_in_button">Log in</string>
+    <string name="com_facebook_loginview_log_in_button_long">Log in with Facebook</string>
+    <string name="title_activity_get_current_location">GetCurrentLocationActivity</string>
 </resources>

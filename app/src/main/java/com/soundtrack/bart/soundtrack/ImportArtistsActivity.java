@@ -81,12 +81,12 @@ public class ImportArtistsActivity extends AppCompatActivity {
                 params.put("facebookid", facebookUserId);
                 params.put("fbtoken", accessTokenString);
 
-                ParseCloud.callFunctionInBackground("parseartists", params, new FunctionCallback<String>() {
+                ParseCloud.callFunctionInBackground("getFacebookArtists", params, new FunctionCallback<String>() {
                     public void done(String artList, ParseException e) {
                         if (e == null) {
                             Toast.makeText(getApplicationContext(), "CLOUD CODE SUCCESS \n" + artList, Toast.LENGTH_LONG).show();
                         } else {
-                            Toast.makeText(getApplicationContext(), "CLOUD CODE ERROR", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "CLOUD CODE ERROR " + e.toString(), Toast.LENGTH_LONG).show();
                         }
 
                     }

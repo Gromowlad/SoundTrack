@@ -22,10 +22,12 @@
         style="@style/ButtonText"
         android:id="@+id/importArtists"
         android:onClick="redToImportArtists"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="55dp"
         android:layout_below="@+id/menuText"
-        android:layout_alignRight="@+id/logOutBtn"
-        android:layout_alignEnd="@+id/logOutBtn" />
+        android:layout_alignLeft="@+id/updateLocationBtn"
+        android:layout_alignStart="@+id/updateLocationBtn"
+        android:layout_alignRight="@+id/updateLocationBtn"
+        android:layout_alignEnd="@+id/updateLocationBtn" />
 
     <Button
         android:layout_width="wrap_content"
@@ -36,16 +38,45 @@
         style="@style/ButtonText"
         android:id="@+id/logOutBtn"
         android:onClick="logOut"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="96dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Menu"
         android:id="@+id/menuText"
+        android:layout_marginTop="41dp"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="@style/ButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradientbuttons"
+        android:text="Update location"
+        android:onClick="redToUpdateLocation"
+        android:textAllCaps="false"
+        android:id="@+id/updateLocationBtn"
+        android:layout_below="@+id/importArtists"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="43dp" />
+        android:layout_marginTop="39dp" />
+
+    <Button
+        style="@style/ButtonText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradientbuttons"
+        android:text="View artists"
+        android:onClick="redToViewArtistList"
+        android:textAllCaps="false"
+        android:id="@+id/viewArtistsBtn"
+        android:layout_below="@+id/updateLocationBtn"
+        android:layout_alignRight="@+id/updateLocationBtn"
+        android:layout_alignEnd="@+id/updateLocationBtn"
+        android:layout_alignLeft="@+id/updateLocationBtn"
+        android:layout_alignStart="@+id/updateLocationBtn" />
 
 </RelativeLayout>
